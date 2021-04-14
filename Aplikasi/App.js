@@ -28,8 +28,8 @@ export default function App() {
         <Stack.Screen name='Login' component={Login}/>
         <Stack.Screen name='Profile' component={Profile}/>
         <Stack.Screen name='Register' component={Register}/>
-        <Stack.Screen name='Splash' component={Splash}/>
-        <Stack.Screen name='Welcome' component={Welcome}/>
+        <Stack.Screen name='Splash' component={Splash} options={{headerShown:false}}/>
+        <Stack.Screen name='Welcome' component={Welcome} options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
