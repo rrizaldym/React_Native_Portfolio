@@ -22,7 +22,7 @@ import Welcome from './screen/Welcome'
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Welcome' >
+      <Stack.Navigator initialRouteName='Splash' >
         <Stack.Screen name='Detail' component={Detail}/>
         <Stack.Screen name='Home' component={Home}/>
         <Stack.Screen name='Login' component={Login}/>

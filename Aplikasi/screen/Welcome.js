@@ -19,34 +19,7 @@ export default function Welcome({navigation}) {
                 </View>
             </View>
 
-            <View style={styles.body} >
-                {/* <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text>
-                <Text>oke</Text> */}
-            </View>
+            <View style={styles.body} />
 
             <View style={styles.footer}>
                 <View style={styles.buttonPosition}>
