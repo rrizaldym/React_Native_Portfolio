@@ -24,7 +24,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Splash' >
         <Stack.Screen name='Detail' component={Detail}/>
-        <Stack.Screen name='Home' component={Home}/>
+        <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name='Login' component={Login}/>
         <Stack.Screen name='Profile' component={Profile}/>
         <Stack.Screen name='Register' component={Register}/>

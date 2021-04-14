@@ -1,9 +1,27 @@
-import React from 'react'
+import React, {useState}  from 'react'
 import { KeyboardAvoidingView, SafeAreaView, StatusBar, StyleSheet, Text, TextInput, View } from 'react-native'
 import { Button } from 'react-native-elements'
 import { AntDesign } from '@expo/vector-icons';
 
-export default function Login() {
+export default function Login({navigation}) {
+    const [noHP, setnoHP] = useState("");
+    const [isError, setIsError] = useState(false);
+
+    const submit = () => {
+        if (noHP.length<11 || noHP[0]!=='8'){
+            return(
+                ()=>setIsError(true)
+            )
+        }else{
+            return(
+                navigation.reset({
+                    index:0,
+                    routes:[{name:'Home'}]
+                })
+            )
+        }
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style='auto'/>
@@ -20,7 +38,7 @@ export default function Login() {
                             title= ' +62'
                             titleStyle={{fontSize:10, color:'black'}}
                             buttonStyle={styles.buttonFlag}
-                            onPress={()=>alert('flag')}
+                            onPress={()=>alert('still in progress')}
                             />
                     </View>
                     <View style={styles.option2}>
@@ -30,6 +48,8 @@ export default function Login() {
                             keyboardType='numeric'
                             maxLength={11}
                             dataDetectorTypes='phoneNumber'
+                            value={noHP}
+                            onChangeText={(value)=>setnoHP(value)}
                         />
                     </View>
                 </View>
@@ -38,7 +58,7 @@ export default function Login() {
             <View style={styles.footer}>
                 <KeyboardAvoidingView>
                     <Button
-                        onPress={()=>alert('home')}
+                        onPress={submit}
                         buttonStyle={styles.buttonNext}
                         icon={
                             <AntDesign
