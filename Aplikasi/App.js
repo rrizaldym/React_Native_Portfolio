@@ -19,14 +19,16 @@ import Register from './screen/Register'
 import Splash from './screen/Splash'
 import Welcome from './screen/Welcome'
 
+// const Utama =
+
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Splash' >
+      <Stack.Navigator initialRouteName='Profile' >
         <Stack.Screen name='Detail' component={Detail}/>
         <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name='Login' component={Login}/>
-        <Stack.Screen name='Profile' component={Profile}/>
+        <Stack.Screen name='Profile' component={Profile} options={{headerShown:false}}/>
         <Stack.Screen name='Register' component={Register}/>
         <Stack.Screen name='Splash' component={Splash} options={{headerShown:false}}/>
         <Stack.Screen name='Welcome' component={Welcome} options={{headerShown:false}}/>
