@@ -19,12 +19,20 @@ import Register from './screen/Register'
 import Splash from './screen/Splash'
 import Welcome from './screen/Welcome'
 
-// const Utama =
+const MainHome = () =>{
+  return(
+    <Tab.Navigator>
+      <Tab.Screen name='Home' component={Home} />
+      <Tab.Screen name='Profile' component={Profile} options={{title:'About Me'}} />
+    </Tab.Navigator>
+  )
+}
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Profile' >
+      <Stack.Navigator initialRouteName='MainHome' >
+        <Stack.Screen name='MainHome' component={MainHome} options={{headerShown:false}}/>
         <Stack.Screen name='Detail' component={Detail}/>
         <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name='Login' component={Login}/>

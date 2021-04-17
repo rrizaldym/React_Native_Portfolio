@@ -17,7 +17,7 @@ export default function Register({navigation}) {
             return(
                 navigation.reset({
                     index:0,
-                    routes:[{name:'Home'}]
+                    routes:[{name:'MainHome'}]
                 })
             )
         }

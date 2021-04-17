@@ -32,7 +32,7 @@ export default function Profile() {
                         <AntDesign 
                             onPress={()=>Linking.openURL('https://www.instagram.com/rizkyrizaldym/')}
                             name="instagram"
-                            size={24} 
+                            size={30} 
                             color="black"
                         />
                         <Text style={{fontSize:12}}>@RIZKYRIZALDYM</Text>
@@ -41,7 +41,7 @@ export default function Profile() {
                         <AntDesign 
                             onPress={()=>Linking.openURL('https://web.facebook.com/Rizky.Rizaldy.M')}
                             name="facebook-square"
-                            size={24}
+                            size={30}
                             color="#395185" 
                         />
                         <Text style={{fontSize:12}}>Rizky Rizaldy M</Text>
@@ -50,7 +50,7 @@ export default function Profile() {
                         <AntDesign 
                             onPress={()=>Linking.openURL('https://twitter.com/rizkyrizaldym')}
                             name="twitter" 
-                            size={24} 
+                            size={30} 
                             color="#55ACEE" 
                         />
                         <Text style={{fontSize:12}}>R_Rizaldy_M</Text>
@@ -68,7 +68,7 @@ export default function Profile() {
                         <AntDesign 
                             onPress={()=>Linking.openURL('https://gitlab.com/rrizaldym')}
                             name="gitlab"
-                            size={24} 
+                            size={30} 
                             color="#E24329"
                         />
                         <Text style={{fontSize:12}}>@rrizaldym</Text>
@@ -77,7 +77,7 @@ export default function Profile() {
                         <AntDesign 
                             onPress={()=>Linking.openURL('https://github.com/rrizaldym')}
                             name="github"
-                            size={24}
+                            size={30}
                             color="black" 
                         />
                         <Text style={{fontSize:12}}>rrizaldym</Text>

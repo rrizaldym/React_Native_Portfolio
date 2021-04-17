@@ -16,7 +16,7 @@ export default function Login({navigation}) {
             return(
                 navigation.reset({
                     index:0,
-                    routes:[{name:'Home'}]
+                    routes:[{name:'MainHome'}]
                 })
             )
         }
