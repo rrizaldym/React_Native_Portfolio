@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { TouchableOpacity, StyleSheet, Text, View, FlatList, Image, SafeAreaView, StatusBar } from 'react-native'
-import axios from 'axios'
 import { Button } from 'react-native-elements'
+import axios from 'axios'
 
 // import { render } from 'react-dom'
 // import Axios from 'react-native-axios'
 
 export default function Home({navigation}) {
-    // const [isError, setIsError] = useState(false)
-    // const [isLoading, setIsLoading] = useState(true)
     const [items, setItems] = useState([])
-    let [next, setNext] = useState('')
-    // const next = 3
+    let [pages, setPages] = useState('')
 
     const getTopAnimeList = () => {
-        axios.get(`https://api.jikan.moe/v3/top/anime/${next}/`)
+        axios.get(`https://api.jikan.moe/v3/top/anime/${pages}/`)
             .then(res=>{
                 const data = (res.data.top)
                 console.log('res: ', data);
@@ -26,13 +23,20 @@ export default function Home({navigation}) {
     }
 
     useEffect(() => {
-        setNext(1)
+        setPages(1)
         getTopAnimeList()
     }, [])
 
     const nextButton = () => {
-        // next++
-        setNext(next+=1)
+        setPages(pages+=1)
+        getTopAnimeList()
+    }
+    const previousButton = () => {
+        setPages(pages-=1)
+        getTopAnimeList()
+    }
+    const firstButton = () => {
+        setPages(1)
         getTopAnimeList()
     }
     
@@ -42,7 +46,7 @@ export default function Home({navigation}) {
             <FlatList
                 data={items}
                 // numColumns={2}
-                keyExtractor={(item)=> item.mal_id}
+                keyExtractor={(item)=> `${item.mal_id}`}
                 renderItem={({item})=>
                 <TouchableOpacity
                 onPress={()=>{
@@ -55,29 +59,55 @@ export default function Home({navigation}) {
                         <View style={{paddingHorizontal :10}} >
                             <Image source={{uri:`${item.image_url}`}} style={styles.Image} />
                         </View>
-                        <View>
-                            <Text styles={styles.textItemLogin} >{item.title}</Text>
+                        <View style={styles.textContainer}>
+                            <Text  numberOfLines={2} styles={styles.textItemLogin}>{item.title}</Text>
                             <Text styles={styles.textItemUrl} >Type : {item.type}</Text>
                             <Text styles={styles.textItemUrl} >Episodes : {item.episodes}</Text>
-                            <Text styles={styles.textItemUrl} >Start Date : {item.start_date}</Text>
-                            <Text styles={styles.textItemUrl} >End Date : {item.end_date}</Text>
+                            {/* <Text styles={styles.textItemUrl} >Start Date : {item.start_date}</Text>
+                            <Text styles={styles.textItemUrl} >End Date : {item.end_date}</Text> */}
                             <Text styles={styles.textItemUrl} >Score : {item.score}</Text>
                         </View>
                     </View>
                 </TouchableOpacity>
                 }
             />
+            <View style={styles.button}>
+                <Button 
+                title='First Pages' 
+                titleStyle={{fontSize:10}}
+                buttonStyle={{
+                    height:50,
+                    width:50,
+                    borderRadius:100,
+                    backgroundColor:'#C4C4C4'
+                }}
+                onPress={firstButton}
+                />
+                <Button 
+                title='Previous Pages' 
+                titleStyle={{fontSize:8}}
+                buttonStyle={{
+                    height:50,
+                    width:50,
+                    borderRadius:100,
+                    backgroundColor:'#C4C4C4'
+                }}
+                onPress={previousButton}
+                />
+                <Button 
+                title='Next Pages' 
+                titleStyle={{fontSize:10}}
+                buttonStyle={{
+                    height:50,
+                    width:50,
+                    borderRadius:100,
+                    backgroundColor:'#C4C4C4'
+                }}
+                onPress={nextButton}
+                />
 
-            <Button 
-            title='Next' 
-            buttonStyle={{
-                height:50,
-                width:50,
-                borderRadius:100,
-                backgroundColor:'#C4C4C4'
-            }}
-            onPress={nextButton}
-            />
+            </View>
+
         </SafeAreaView>
     )
 }
@@ -93,8 +123,13 @@ const styles = StyleSheet.create({
         borderWidth:1,
         borderColor:'#DDD',
         alignItems:'center',
-      // height:100,
-      // justifyContent:'space-evenly'
+        paddingVertical:5,
+        width:'100%',
+        // height:150,
+    },
+    textContainer:{
+        width:'100%',
+        justifyContent:'center',
     },
     Image:{
         width:80,
@@ -106,7 +141,9 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
         textTransform:'capitalize',
         marginLeft:20,
-        fontSize:16
+        marginRight:5,
+        fontSize:16,
+        textAlign:'justify',
     },
     textItemUrl:{
         fontWeight:'bold',
@@ -114,5 +151,9 @@ const styles = StyleSheet.create({
         fontSize:12,
         marginTop:10,
         color:'blue'
+    },
+    button:{
+        flexDirection:'row',
+        justifyContent:'space-around',
     },
 })

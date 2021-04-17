@@ -19,7 +19,9 @@ export default function Welcome({navigation}) {
                 </View>
             </View>
 
-            <View style={styles.body} />
+            <View style={styles.body}>
+                <Text style={{textAlign:'center'}}>{`This app about the list of top anime from MyAnimeList\nIts just for my portofolio`}</Text>
+            </View>
 
             <View style={styles.footer}>
                 <View style={styles.buttonPosition}>
@@ -59,6 +61,8 @@ const styles = StyleSheet.create({
     },
     body:{
         flex:5,
+        justifyContent:'center',
+        marginHorizontal:10,
         // backgroundColor:'grey',
     },
     footer:{

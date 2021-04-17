@@ -1,15 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
+// import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import {NavigationContainer} from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createDrawerNavigator } from '@react-navigation/drawer'
+// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 const Stack = createStackNavigator()
-const Tab = createBottomTabNavigator()
 const Drawer = createDrawerNavigator()
+// const Tab = createBottomTabNavigator()
 
 import Detail from './screen/Detail'
 import Home from './screen/Home'
@@ -21,17 +21,17 @@ import Welcome from './screen/Welcome'
 
 const MainHome = () =>{
   return(
-    <Tab.Navigator>
-      <Tab.Screen name='Home' component={Home} />
-      <Tab.Screen name='Profile' component={Profile} options={{title:'About Me'}} />
-    </Tab.Navigator>
+    <Drawer.Navigator>
+      <Drawer.Screen name='Home' component={Home} />
+      <Drawer.Screen name='Profile' component={Profile} options={{title:'About Me'}} />
+    </Drawer.Navigator>
   )
 }
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='MainHome' >
+      <Stack.Navigator initialRouteName='Splash' >
         <Stack.Screen name='MainHome' component={MainHome} options={{headerShown:false}}/>
         <Stack.Screen name='Detail' component={Detail}/>
         <Stack.Screen name='Home' component={Home} />
